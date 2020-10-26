@@ -16,7 +16,7 @@ namespace GBLib.Architecture.Implementations.Graphics
             AddColor(3, "Black", Color.Black, new byte[] { 6, 7 });
         }
 
-        private static void AddColor(int id, string name=null, Color color, byte[] byteIds)
+        private static void AddColor(int id, string name, Color color, byte[] byteIds)
         {
             DefinedColors.Add(new GBColor
             {

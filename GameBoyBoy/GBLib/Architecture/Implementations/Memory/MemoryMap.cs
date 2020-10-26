@@ -1,10 +1,13 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Security.Cryptography;
 
 namespace GBLib.Architecture.Implementations.Memory
 {
     public static class MemoryMap
     {
-        public static byte[] Memory = new byte[0x1FFF];
+        public static BitArray Memory = new BitArray(0xFFFF);
 
         /// <summary>
         ///0000-3FFF   16KB ROM Bank 00     (in cartridge, fixed at bank 00)
@@ -22,7 +25,7 @@ namespace GBLib.Architecture.Implementations.Memory
         public static AdressRange VRam = new AdressRange { Start = 0x8000, End = 0x3FFF };
 
         /// <summary>
-        ///A000 - BFFF   8KB External RAM(in cartridge, switchable bank, if any)
+        ///A000 - BFFF   8KB External RAM(in cartridge, switchable bank, if any) - usually contains saves etc.
         /// </summary>
         public static AdressRange ExternalRam = new AdressRange { Start = 0xA000, End = 0xBFFF };
 
@@ -70,5 +73,26 @@ namespace GBLib.Architecture.Implementations.Memory
         /// 0100-014F contains the cartridge header.
         /// </summary>
         public static AdressRange CartridgeHeader = new AdressRange { Start = 0x0100, End = 0x014F };
+
+        public static void SetMemoryBit(int adress, uint value)
+        {
+            Memory.Set(adress, value != 0);
+        }
+
+        public static void SetMemoryBits(AdressRange adressRange, BitArray bits)
+        {
+            if(adressRange.End-adressRange.Start < bits.Length)
+            {
+                throw new Exception();
+            }
+            if(adressRange.End > Memory.Length)
+            {
+                throw new Exception();
+            }
+            for(int i = adressRange.Start; i <= adressRange.End; i++)
+            {
+                Memory.Set(i, bits.Get(i - adressRange.Start));
+            }
+        }
     }
 }

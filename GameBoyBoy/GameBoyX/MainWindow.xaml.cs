@@ -24,6 +24,7 @@ namespace GameBoyX
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
