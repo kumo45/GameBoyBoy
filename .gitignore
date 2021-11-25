@@ -1,0 +1,14 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/GameBoyBoy/GBLib/obj
+/GameBoyBoy/GBLib/bin/Debug/netcoreapp3.1
+/GameBoyBoy/GBLib.Tests/bin/Debug/netcoreapp3.1
+/GameBoyBoy/GBLib.Tests/obj/Debug/netcoreapp3.1
+/GameBoyBoy/GBLib.Tests/obj
+/GameBoyBoy/GameBoyX/obj
+/GameBoyBoy/GameBoyX/bin/Debug/netcoreapp3.1
+/GameBoyBoy/GameBoyBoy/obj
+/GameBoyBoy/.vs/GameBoyBoy
+/GameBoyBoy/GameBoyBoy/bin/Debug/netcoreapp3.1
