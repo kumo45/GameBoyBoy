@@ -1,6 +1,6 @@
 ﻿namespace GBLib.Architecture.Implementations.Graphics
 {
-    class Screen
+    public class Screen
     {
     }
 }
